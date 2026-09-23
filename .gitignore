@@ -1,0 +1,9 @@
+# Bu depoda YALNIZCA statik demo bulunur.
+# Asagidakiler asla eklenmemelidir:
+wp-config.php
+wp-config.production.php
+ftp.conf
+*.sql
+*.sql.gz
+*.zip
+.env

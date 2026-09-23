@@ -1,0 +1,82 @@
+name: Eksik / hata bildirimi
+description: Demoda gördüğünüz bir eksiği veya hatayı bildirin
+title: "[Eksik] "
+labels: ["eksik"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Her eksik için ayrı bir kayıt açmanız, takip etmemizi kolaylaştırır.
+        Teşekkürler!
+
+  - type: dropdown
+    id: sayfa
+    attributes:
+      label: Hangi sayfada?
+      options:
+        - Ana sayfa
+        - Ürünler (liste)
+        - Ürün kategorisi
+        - Ürün detayı
+        - Kurumsal
+        - İletişim
+        - Üstbilgi / menü
+        - Altbilgi
+        - Birden fazla sayfa
+        - Diğer
+    validations:
+      required: true
+
+  - type: input
+    id: adres
+    attributes:
+      label: Sayfanın adresi
+      description: Tarayıcının adres çubuğundan kopyalayabilirsiniz
+      placeholder: https://.../orclean-demo/product/...
+    validations:
+      required: false
+
+  - type: textarea
+    id: sorun
+    attributes:
+      label: Ne eksik veya yanlış?
+      placeholder: Örn. M50-X makinesinin akü kapasitesi 100 Ah değil, 105 Ah olmalı.
+    validations:
+      required: true
+
+  - type: textarea
+    id: olmasi-gereken
+    attributes:
+      label: Nasıl olmalı?
+      placeholder: Doğrusunu yazabilirseniz çok yardımcı olur.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: oncelik
+    attributes:
+      label: Önem derecesi
+      options:
+        - Yüksek — yayına almadan mutlaka düzeltilmeli
+        - Orta — düzeltilmesi iyi olur
+        - Düşük — zaman kalırsa
+    validations:
+      required: true
+
+  - type: dropdown
+    id: cihaz
+    attributes:
+      label: Hangi cihazda gördünüz?
+      options:
+        - Bilgisayar
+        - Telefon
+        - Tablet
+        - Hepsinde
+    validations:
+      required: false
+
+  - type: textarea
+    id: ekran-goruntusu
+    attributes:
+      label: Ekran görüntüsü
+      description: Görseli bu alana sürükleyip bırakabilirsiniz.

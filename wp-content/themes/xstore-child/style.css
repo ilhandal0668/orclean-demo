@@ -1,0 +1,3096 @@
+/*
+Theme Name:   xstore-child
+Theme URI:    https://xstore.8theme.com
+Description:  Orclean - Temizlik Teknolojileri. XStore alt teması; Orclean tasarım sistemi.
+Author:       8theme
+Author URI:   https://www.8theme.com
+Template:     xstore
+Version:      2.0
+Text Domain:  xstore-child
+Tags: e-commerce, two-columns, custom-colors, custom-menu, featured-images, full-width-template, accessibility-ready, rtl-language-support, woocommerce, shop, elementor, business, corporate, light
+*/
+
+/* ============================================================
+   ORCLEAN TASARIM SİSTEMİ
+   Marka: lacivert #0B3954 + kehribar #FFB128
+   Sıra: tasarım jetonları -> tipografi -> düzen -> bileşenler
+   ============================================================ */
+
+:root {
+  /* --- Marka --- */
+  --oc-navy-900: #061F2E;
+  --oc-navy-800: #0B3954;
+  --oc-navy-700: #14496A;
+  --oc-navy-600: #1F5C82;
+  --oc-amber-500: #FFB128;
+  --oc-amber-600: #E89A12;
+  --oc-amber-100: #FFF3DC;
+
+  /* --- Nötr ölçek --- */
+  --oc-white: #FFFFFF;
+  --oc-gray-50:  #F7F9FB;
+  --oc-gray-100: #EDF1F5;
+  --oc-gray-200: #DFE5EC;
+  --oc-gray-300: #C6D0DB;
+  --oc-gray-500: #6B7C8F;
+  --oc-gray-700: #3D4E5F;
+  --oc-gray-900: #16212B;
+
+  /* --- Anlamsal --- */
+  --oc-bg: var(--oc-white);
+  --oc-bg-soft: var(--oc-gray-50);
+  --oc-text: var(--oc-gray-900);
+  --oc-text-muted: var(--oc-gray-500);
+  --oc-border: var(--oc-gray-200);
+  --oc-primary: var(--oc-navy-800);
+  --oc-accent: var(--oc-amber-500);
+
+  /* --- Tipografi --- */
+  --oc-font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --oc-fs-xs: 0.75rem;
+  --oc-fs-sm: 0.875rem;
+  --oc-fs-base: 1rem;
+  --oc-fs-lg: 1.125rem;
+  --oc-fs-xl: 1.375rem;
+  --oc-fs-2xl: 1.75rem;
+  --oc-fs-3xl: 2.25rem;
+  --oc-fs-4xl: 3rem;
+  --oc-lh-tight: 1.15;
+  --oc-lh-snug: 1.35;
+  --oc-lh-base: 1.6;
+
+  /* --- Alan ölçeği --- */
+  --oc-sp-1: 0.25rem;
+  --oc-sp-2: 0.5rem;
+  --oc-sp-3: 0.75rem;
+  --oc-sp-4: 1rem;
+  --oc-sp-5: 1.5rem;
+  --oc-sp-6: 2rem;
+  --oc-sp-7: 3rem;
+  --oc-sp-8: 4rem;
+  --oc-sp-9: 6rem;
+
+  /* --- Biçim --- */
+  --oc-radius-sm: 6px;
+  --oc-radius: 10px;
+  --oc-radius-lg: 20px;
+  --oc-shadow-sm: 0 1px 2px rgba(11,57,84,.06), 0 1px 3px rgba(11,57,84,.04);
+  --oc-shadow: 0 4px 12px rgba(11,57,84,.07), 0 2px 4px rgba(11,57,84,.04);
+  --oc-shadow-lg: 0 24px 60px rgba(6,31,46,.14), 0 6px 18px rgba(6,31,46,.07);
+  --oc-ring: 0 0 0 3px rgba(255,177,40,.45);
+  --oc-transition: 200ms cubic-bezier(.4,0,.2,1);
+  --oc-container: 1320px;
+}
+
+/* ============================================================
+   TİPOGRAFİ
+   ============================================================ */
+
+body.orclean,
+body.orclean .woocommerce {
+  font-family: var(--oc-font);
+  font-size: var(--oc-fs-base);
+  line-height: var(--oc-lh-base);
+  color: var(--oc-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Elementor kutularında YALNIZCA yazı tipi devralınır.
+   Buraya `color` yazılırsa, Elementor'un koyu zeminli kutular için
+   dış sarmalayıcıya verdiği beyaz renk daha derindeki bu kural
+   tarafından eziliyor ve yazılar okunmaz hale geliyordu
+   (İletişim sayfasındaki koyu "Çalışma Saatleri" kutusu gibi).
+   Renk, gövdeden devralınır; koyu kutularda Elementor'un kendi
+   beyaz rengi geçerli kalır. */
+body.orclean .elementor-widget-container {
+  font-family: var(--oc-font);
+  font-size: var(--oc-fs-base);
+  line-height: var(--oc-lh-base);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body.orclean *,
+body.orclean *::before,
+body.orclean *::after { box-sizing: border-box; }
+
+body.orclean h1,
+body.orclean h2,
+body.orclean h3,
+body.orclean h4,
+body.orclean h5,
+body.orclean h6,
+body.orclean .product_title {
+  font-family: var(--oc-font);
+  color: var(--oc-navy-800);
+  line-height: var(--oc-lh-tight);
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+body.orclean h1,
+body.orclean .product_title { font-size: clamp(1.875rem, 1.2rem + 2.2vw, var(--oc-fs-4xl)); }
+body.orclean h2 { font-size: clamp(1.5rem, 1.1rem + 1.4vw, var(--oc-fs-3xl)); }
+body.orclean h3 { font-size: var(--oc-fs-2xl); font-weight: 700; }
+body.orclean h4 { font-size: var(--oc-fs-xl); font-weight: 700; }
+
+/* Koyu zeminli yüzeylerde başlık rengi.
+   Yukarıdaki "body.orclean h1" kuralı özgüllük olarak baskın olduğu için
+   bu yüzeylerin de aynı özgüllükle yazılması gerekiyor. */
+body.orclean .oc-hero h1,
+body.orclean .oc-hero__baslik,
+body.orclean .oc-archive-head h1,
+body.orclean .oc-bant h1,
+body.orclean .oc-bant__baslik,
+body.orclean .oc-vitrin h2,
+body.orclean .oc-vitrin__metin h2,
+body.orclean .oc-cta h2,
+body.orclean .oc-cta__baslik,
+body.orclean .oc-quote .oc-quote__title,
+body.orclean .oc-footer h2,
+body.orclean .oc-footer .oc-footer__baslik {
+  color: var(--oc-white);
+}
+
+/* Bileşen başlıkları kendi boyutlarını korur.
+   Yukarıdaki "body.orclean h2" kuralı özgüllük olarak baskın olduğu için
+   bu başlıkların da aynı özgüllükle yazılması gerekiyor. Aksi halde
+   altbilgi etiketleri ve kart başlıkları dev punto çıkıyor. */
+body.orclean .oc-footer .oc-footer__baslik {
+  font-size: var(--oc-fs-sm);
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+body.orclean .oc-quote .oc-quote__title,
+body.orclean .oc-yan .oc-yan__baslik,
+body.orclean .oc-degerlendirme .woocommerce-Reviews-title,
+body.orclean .oc-degerlendirme #reply-title {
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+body.orclean .oc-specs h2 { font-size: 1.125rem; }
+
+/* Bölüm üstü etiketi */
+.oc-eyebrow {
+  display: inline-block;
+  font-size: var(--oc-fs-xs);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--oc-amber-600);
+  margin-bottom: var(--oc-sp-2);
+}
+
+.oc-lead {
+  font-size: var(--oc-fs-lg);
+  color: var(--oc-gray-700);
+  line-height: var(--oc-lh-base);
+  max-width: 62ch;
+}
+
+/* ============================================================
+   DÜZEN
+   ============================================================ */
+
+.oc-container {
+  width: 100%;
+  max-width: var(--oc-container);
+  margin-inline: auto;
+  padding-inline: var(--oc-sp-4);
+}
+
+.oc-section { padding-block: clamp(4.5rem, 7vw, 7rem); }
+.oc-section--soft { background: var(--oc-bg-soft); }
+
+.oc-grid {
+  display: grid;
+  gap: var(--oc-sp-5);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+}
+
+/* ============================================================
+   DÜĞMELER
+   ============================================================ */
+
+.oc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--oc-sp-2);
+  min-height: 48px;
+  padding: var(--oc-sp-3) var(--oc-sp-5);
+  border: 2px solid transparent;
+  border-radius: var(--oc-radius);
+  font-family: var(--oc-font);
+  font-size: var(--oc-fs-sm);
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--oc-transition), border-color var(--oc-transition),
+              color var(--oc-transition), transform var(--oc-transition),
+              box-shadow var(--oc-transition);
+}
+
+.oc-btn:focus-visible { outline: none; box-shadow: var(--oc-ring); }
+
+.oc-btn--primary {
+  background: var(--oc-amber-500);
+  color: var(--oc-navy-900);
+  border-color: var(--oc-amber-500);
+}
+.oc-btn--primary:hover {
+  background: var(--oc-amber-600);
+  border-color: var(--oc-amber-600);
+  color: var(--oc-navy-900);
+  transform: translateY(-1px);
+  box-shadow: var(--oc-shadow);
+}
+
+.oc-btn--solid {
+  background: var(--oc-navy-800);
+  color: var(--oc-white);
+  border-color: var(--oc-navy-800);
+}
+.oc-btn--solid:hover {
+  background: var(--oc-navy-700);
+  border-color: var(--oc-navy-700);
+  color: var(--oc-white);
+  transform: translateY(-1px);
+}
+
+.oc-btn--ghost {
+  background: transparent;
+  color: var(--oc-navy-800);
+  border-color: var(--oc-gray-300);
+}
+.oc-btn--ghost:hover {
+  border-color: var(--oc-navy-800);
+  background: var(--oc-navy-800);
+  color: var(--oc-white);
+}
+
+.oc-btn--block { width: 100%; }
+
+/* ============================================================
+   ÜRÜN KARTI
+   ============================================================ */
+
+.oc-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--oc-white);
+  border: 1px solid var(--oc-border);
+  border-radius: var(--oc-radius-lg);
+  overflow: hidden;
+  transition: border-color var(--oc-transition), box-shadow var(--oc-transition),
+              transform var(--oc-transition);
+}
+
+.oc-card:hover {
+  border-color: var(--oc-navy-600);
+  box-shadow: var(--oc-shadow-lg);
+  transform: translateY(-4px);
+}
+
+.oc-card:focus-within { box-shadow: var(--oc-ring); }
+
+.oc-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--oc-gray-50);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: var(--oc-sp-4);
+}
+
+.oc-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 400ms cubic-bezier(.4,0,.2,1);
+}
+
+.oc-card:hover .oc-card__media img { transform: scale(1.05); }
+
+.oc-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oc-sp-2);
+  padding: var(--oc-sp-5);
+  flex: 1 1 auto;
+}
+
+.oc-card__cat {
+  font-size: var(--oc-fs-xs);
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--oc-text-muted);
+}
+
+.oc-card__title {
+  font-size: var(--oc-fs-lg);
+  font-weight: 700;
+  line-height: var(--oc-lh-snug);
+  color: var(--oc-navy-800);
+  margin: 0;
+}
+
+.oc-card__title a { color: inherit; text-decoration: none; }
+.oc-card__title a::after { content: ""; position: absolute; inset: 0; }
+
+.oc-card__excerpt {
+  font-size: var(--oc-fs-sm);
+  color: var(--oc-text-muted);
+  line-height: var(--oc-lh-base);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.oc-card__foot {
+  margin-top: auto;
+  padding-top: var(--oc-sp-4);
+  display: flex;
+  align-items: center;
+  gap: var(--oc-sp-3);
+}
+
+.oc-card__cta {
+  position: relative;
+  z-index: 1;
+  font-size: var(--oc-fs-sm);
+  font-weight: 700;
+  color: var(--oc-navy-800);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--oc-sp-2);
+}
+.oc-card__cta svg { transition: transform var(--oc-transition); }
+.oc-card:hover .oc-card__cta svg { transform: translateX(4px); }
+
+/* ============================================================
+   ARŞİV BAŞLIĞI
+   ============================================================ */
+
+.oc-archive-head {
+  background: linear-gradient(135deg, var(--oc-navy-900) 0%, var(--oc-navy-800) 55%, var(--oc-navy-700) 100%);
+  color: var(--oc-white);
+  padding-block: var(--oc-sp-8);
+  position: relative;
+  overflow: hidden;
+}
+
+.oc-archive-head::after {
+  content: "";
+  position: absolute;
+  right: -10%;
+  top: -40%;
+  width: 46%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,177,40,.18) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.oc-archive-head h1 { color: var(--oc-white); margin: 0 0 var(--oc-sp-3); }
+.oc-archive-head .oc-eyebrow { color: var(--oc-amber-500); }
+.oc-archive-head .oc-lead { color: rgba(255,255,255,.82); }
+
+.oc-archive-head__count {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--oc-sp-2);
+  margin-top: var(--oc-sp-4);
+  padding: var(--oc-sp-2) var(--oc-sp-4);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 999px;
+  font-size: var(--oc-fs-sm);
+  font-weight: 600;
+  color: rgba(255,255,255,.9);
+}
+
+/* Kategori gezinme şeridi */
+.oc-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--oc-sp-2);
+  padding-block: var(--oc-sp-5);
+  border-bottom: 1px solid var(--oc-border);
+  margin-bottom: var(--oc-sp-6);
+}
+
+.oc-cats__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--oc-sp-2);
+  padding: var(--oc-sp-2) var(--oc-sp-4);
+  border: 1px solid var(--oc-border);
+  border-radius: 999px;
+  font-size: var(--oc-fs-sm);
+  font-weight: 600;
+  color: var(--oc-gray-700);
+  text-decoration: none;
+  transition: all var(--oc-transition);
+}
+
+.oc-cats__item:hover,
+.oc-cats__item[aria-current="page"] {
+  background: var(--oc-navy-800);
+  border-color: var(--oc-navy-800);
+  color: var(--oc-white);
+}
+
+.oc-cats__n {
+  font-size: var(--oc-fs-xs);
+  opacity: .7;
+  font-weight: 700;
+}
+
+/* ============================================================
+   TEK ÜRÜN SAYFASI
+   ============================================================ */
+
+.oc-product { padding-block: var(--oc-sp-7); }
+
+.oc-product__grid {
+  display: grid;
+  gap: var(--oc-sp-7);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .oc-product__grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+}
+
+.oc-product__gallery {
+  position: relative;
+  background: var(--oc-gray-50);
+  border: 1px solid var(--oc-border);
+  border-radius: var(--oc-radius-lg);
+  padding: var(--oc-sp-5);
+}
+
+.oc-product__gallery img { border-radius: var(--oc-radius); }
+
+.oc-product__summary { display: flex; flex-direction: column; gap: var(--oc-sp-4); }
+
+.oc-product__title { margin: 0; }
+
+.oc-product__short {
+  font-size: var(--oc-fs-base);
+  color: var(--oc-gray-700);
+  line-height: var(--oc-lh-base);
+}
+.oc-product__short p { margin-block: 0 var(--oc-sp-3); }
+.oc-product__short ul { padding-left: var(--oc-sp-5); }
+
+.oc-quote {
+  background: var(--oc-navy-800);
+  color: var(--oc-white);
+  border-radius: var(--oc-radius-lg);
+  padding: var(--oc-sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--oc-sp-3);
+}
+
+.oc-quote__title {
+  font-size: var(--oc-fs-lg);
+  font-weight: 800;
+  color: var(--oc-white);
+  margin: 0;
+}
+
+.oc-quote__text {
+  font-size: var(--oc-fs-sm);
+  color: rgba(255,255,255,.78);
+  margin: 0;
+}
+
+.oc-quote__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--oc-sp-3);
+  margin-top: var(--oc-sp-2);
+}
+
+/* Teknik özellik tablosu */
+.oc-specs { margin-top: var(--oc-sp-7); }
+
+.oc-specs__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--oc-fs-sm);
+  border: 1px solid var(--oc-border);
+  border-radius: var(--oc-radius);
+  overflow: hidden;
+}
+
+.oc-specs__table th,
+.oc-specs__table td {
+  padding: var(--oc-sp-3) var(--oc-sp-4);
+  text-align: left;
+  border-bottom: 1px solid var(--oc-border);
+}
+
+.oc-specs__table th {
+  width: 38%;
+  font-weight: 700;
+  color: var(--oc-navy-800);
+  background: var(--oc-gray-50);
+}
+
+.oc-specs__table tr:last-child th,
+.oc-specs__table tr:last-child td { border-bottom: 0; }
+
+/* Açıklama bölümü */
+.oc-desc {
+  margin-top: var(--oc-sp-7);
+  padding-top: var(--oc-sp-6);
+  border-top: 1px solid var(--oc-border);
+  max-width: 76ch;
+}
+.oc-desc p { margin-block: 0 var(--oc-sp-4); line-height: var(--oc-lh-base); }
+
+/* ============================================================
+   ERİŞİLEBİLİRLİK
+   ============================================================ */
+
+body.orclean a:focus-visible,
+body.orclean button:focus-visible,
+body.orclean input:focus-visible,
+body.orclean select:focus-visible,
+body.orclean textarea:focus-visible {
+  outline: 3px solid var(--oc-amber-500);
+  outline-offset: 2px;
+}
+
+.oc-visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.oc-skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: var(--oc-sp-3) var(--oc-sp-5);
+  background: var(--oc-navy-800);
+  color: var(--oc-white);
+  font-weight: 700;
+  border-radius: 0 0 var(--oc-radius) 0;
+}
+.oc-skip-link:focus { left: 0; top: 0; color: var(--oc-white); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .oc-card:hover { transform: none; }
+  .oc-card:hover .oc-card__media img { transform: none; }
+}
+
+/* ============================================================
+   ÜSTBİLGİ
+   ============================================================ */
+
+/* ---- Yapışkan üstbilgi ----
+   Üstbilgi, üst şerit yüksekliği kadar NEGATİF `top` ile yapıştırılır:
+   sayfa kaydıkça üst şerit kendiliğinden yukarı kayıp kaybolur, gezinme
+   satırı ekranın tepesine oturur.
+
+   ÖNEMLİ: kaydırma sırasında üstbilginin YÜKSEKLİĞİ hiç değişmemeli.
+   Önceki sürümde üst şerit `max-height: 0` ile gizleniyordu; belge 47px
+   kısalınca tarayıcının kaydırma çıpası (scroll anchoring) scrollY'yi
+   düzeltiyor, düzelen scrollY eşiği tekrar geçiyor ve üstbilgi saniyede
+   birkaç kez açılıp kapanıyordu. Bu yüzden burada yalnızca gölge gibi
+   düzeni etkilemeyen özellikler değişir. */
+
+.oc-header {
+  position: sticky;
+  top: calc(-1 * var(--oc-ust-serit, 0px));
+  z-index: 100;
+}
+
+/* Yalnızca gölge değişir; yükseklik sabit kalır. */
+.oc-nav { transition: box-shadow 220ms ease; }
+.oc-header.is-yapiskan .oc-nav { box-shadow: 0 10px 34px rgba(6,31,46,.12); }
+
+/* Bağlantıyla bir bölüme atlandığında başlık gezinme satırının
+   altında kalmasın. */
+body.orclean { scroll-padding-top: 96px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .oc-nav { transition: none; }
+}
+
+/* Yüksekliği çok kısıtlı ekranlarda yapışkanlık kapatılır. */
+@media (max-height: 520px) {
+  .oc-header { position: relative; top: auto; }
+}
+
+.oc-topbar {
+  background: var(--oc-navy-900);
+  color: rgba(255,255,255,.82);
+  font-size: .8rem;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.oc-topbar__in {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oc-sp-4);
+  flex-wrap: wrap;
+  min-height: 40px;
+  padding-block: var(--oc-sp-2);
+}
+
+.oc-topbar__slogan { margin: 0; font-weight: 500; }
+
+.oc-topbar__links { display: flex; align-items: center; gap: var(--oc-sp-5); flex-wrap: wrap; }
+
+.oc-topbar__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--oc-sp-2);
+  color: rgba(255,255,255,.88);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--oc-transition);
+}
+.oc-topbar__link:hover { color: var(--oc-amber-500); }
+
+.oc-topbar__link--b2b {
+  padding: var(--oc-sp-1) var(--oc-sp-3);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+}
+
+.oc-nav {
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--oc-border);
+  box-shadow: 0 8px 30px rgba(6,31,46,.04);
+  backdrop-filter: blur(14px);
+}
+
+.oc-nav__in {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oc-sp-5);
+  min-height: 82px;
+}
+
+/* Logo */
+.oc-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--oc-sp-3);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.oc-logo__mark { display: inline-flex; }
+
+.oc-logo__text { display: flex; flex-direction: column; line-height: 1.05; }
+
+.oc-logo__text strong {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  color: var(--oc-navy-800);
+}
+
+.oc-logo__text small {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--oc-text-muted);
+}
+
+.oc-logo__text--footer strong { color: var(--oc-white); }
+.oc-logo__text--footer small { color: rgba(255,255,255,.6); }
+
+/* Menü */
+.oc-menu { display: flex; align-items: center; gap: var(--oc-sp-5); }
+
+.oc-menu__list {
+  display: flex;
+  align-items: center;
+  gap: var(--oc-sp-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.oc-menu__item { position: relative; }
+
+.oc-menu__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--oc-sp-2);
+  padding: var(--oc-sp-3) var(--oc-sp-4);
+  border-radius: var(--oc-radius);
+  font-size: var(--oc-fs-sm);
+  font-weight: 650;
+  color: var(--oc-gray-900);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background var(--oc-transition), color var(--oc-transition);
+}
+
+.oc-menu__link:hover { background: var(--oc-gray-50); color: var(--oc-navy-800); }
+
+.oc-menu__sub {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 292px;
+  background: var(--oc-white);
+  border: 1px solid var(--oc-border);
+  border-radius: var(--oc-radius-lg);
+  box-shadow: var(--oc-shadow-lg);
+  list-style: none;
+  margin: 0;
+  padding: var(--oc-sp-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity var(--oc-transition), transform var(--oc-transition), visibility var(--oc-transition);
+}
+
+.oc-menu__item--has-sub:hover .oc-menu__sub,
+.oc-menu__item--has-sub:focus-within .oc-menu__sub {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.oc-menu__sub a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oc-sp-3);
+  padding: var(--oc-sp-3) var(--oc-sp-4);
+  border-radius: var(--oc-radius);
+  font-size: var(--oc-fs-sm);
+  font-weight: 600;
+  color: var(--oc-gray-700);
+  text-decoration: none;
+  transition: background var(--oc-transition), color var(--oc-transition);
+}
+
+.oc-menu__sub a:hover { background: var(--oc-gray-50); color: var(--oc-navy-800); }
+
+.oc-menu__n {
+  font-size: var(--oc-fs-xs);
+  font-weight: 700;
+  color: var(--oc-text-muted);
+  background: var(--oc-gray-100);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.oc-nav__toggle {
+  display: none;
+  width: 48px; height: 48px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--oc-border);
+  border-radius: var(--oc-radius);
+  cursor: pointer;
+}
+
+.oc-nav__bars,
+.oc-nav__bars::before,
+.oc-nav__bars::after {
+  display: block;
+  width: 20px; height: 2px;
+  background: var(--oc-navy-800);
+  border-radius: 2px;
+}
+.oc-nav__bars { position: relative; }
+.oc-nav__bars::before,
+.oc-nav__bars::after { content: ""; position: absolute; left: 0; }
+.oc-nav__bars::before { top: -6px; }
+.oc-nav__bars::after { top: 6px; }
+
+@media (max-width: 991px) {
+  .oc-nav__toggle { display: inline-flex; }
+  .oc-menu {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--oc-sp-3);
+    padding: var(--oc-sp-4);
+    background: var(--oc-white);
+    border-bottom: 1px solid var(--oc-border);
+    box-shadow: var(--oc-shadow-lg);
+  }
+  .oc-menu.is-open { display: flex; }
+  .oc-menu__list { flex-direction: column; align-items: stretch; }
+  .oc-menu__sub {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: 0;
+    padding-left: var(--oc-sp-4);
+  }
+  .oc-topbar__slogan { display: none; }
+}
+
+@media (max-width: 575px) {
+  .oc-topbar__in { justify-content: center; }
+  .oc-topbar__links { width: 100%; justify-content: space-between; gap: .6rem; }
+  .oc-topbar__link[href^="mailto:"] { display: none; }
+  .oc-nav__in { min-height: 76px; }
+  .oc-logo__text strong { font-size: 1.2rem; }
+  .oc-logo__text small { font-size: .58rem; }
+}
+
+/* ============================================================
+   KAHRAMAN BÖLÜMÜ
+   ============================================================ */
+
+.oc-hero {
+  background: var(--oc-navy-900);
+  color: var(--oc-white);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.oc-hero__backdrop {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(3,20,31,.96) 0%, rgba(4,27,41,.90) 37%, rgba(5,31,46,.48) 67%, rgba(5,31,46,.24) 100%),
+    url("assets/images/orclean-hero-industrial-v2.webp");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.01);
+  z-index: -2;
+}
+
+.oc-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(6,31,46,.04), rgba(6,31,46,.3)),
+    repeating-linear-gradient(90deg, transparent 0, transparent calc(25% - 1px), rgba(255,255,255,.035) 25%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.oc-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,177,40,.65), transparent);
+  pointer-events: none;
+}
+
+.oc-hero__in {
+  display: grid;
+  gap: clamp(2rem, 5vw, 6rem);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  min-height: 650px;
+  padding-block: clamp(4rem, 7vw, 7rem);
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 900px) {
+  .oc-hero__in {
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, .72fr);
+  }
+}
+
+.oc-hero__metin { max-width: 720px; }
+
+.oc-hero__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: .65rem;
+  margin-bottom: 1.35rem;
+  color: rgba(255,255,255,.82);
+  font-size: .75rem;
+  font-weight: 750;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.oc-hero__kicker-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--oc-amber-500);
+  box-shadow: 0 0 0 6px rgba(255,177,40,.12);
+}
+
+.oc-hero__baslik {
+  margin: 0 0 1.4rem;
+  font-size: clamp(2.75rem, 2rem + 3vw, 4.75rem);
+  line-height: 1.02;
+  letter-spacing: -.045em;
+  max-width: 14ch;
+  text-wrap: balance;
+}
+
+.oc-hero__aciklama {
+  font-size: clamp(1rem, .95rem + .25vw, 1.125rem);
+  color: rgba(255,255,255,.76);
+  line-height: 1.75;
+  max-width: 59ch;
+  margin: 0 0 1.85rem;
+}
+
+.oc-hero__aksiyon { display: flex; flex-wrap: wrap; gap: .85rem; }
+.oc-hero__aksiyon .oc-btn { min-height: 54px; padding-inline: 1.6rem; }
+
+.oc-btn--hero-ghost {
+  background: rgba(255,255,255,.06);
+  color: var(--oc-white);
+  border-color: rgba(255,255,255,.28);
+  backdrop-filter: blur(8px);
+}
+.oc-btn--hero-ghost:hover {
+  background: rgba(255,255,255,.1);
+  border-color: var(--oc-white);
+  color: var(--oc-white);
+}
+
+/* Güven şeridi: boş alanı anlamlı bilgiyle doldurur. */
+.oc-hero__guven {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1.75rem, 4vw, 3.75rem);
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,.14);
+  max-width: 640px;
+}
+
+.oc-hero__guven-oge { display: flex; flex-direction: column; gap: 2px; }
+
+.oc-hero__guven-sayi {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--oc-amber-500);
+  line-height: 1;
+}
+
+.oc-hero__guven-etiket {
+  font-size: var(--oc-fs-xs);
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.62);
+}
+
+/* Gerçek ürün görselini sinematik arka plandan ayıran vitrin kartı. */
+.oc-hero__gorsel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.oc-hero__gorsel::before {
+  content: "";
+  position: absolute;
+  width: 86%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255,177,40,.2);
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.oc-hero__urun-karti {
+  position: relative;
+  width: min(100%, 430px);
+  padding: 1rem 1rem 0;
+  background: rgba(255,255,255,.96);
+  border: 1px solid rgba(255,255,255,.72);
+  border-radius: 26px;
+  box-shadow: 0 35px 90px rgba(0,0,0,.34), 0 1px 0 rgba(255,255,255,.75) inset;
+  transform: rotate(1.5deg);
+}
+
+.oc-hero__urun-etiket {
+  position: absolute;
+  top: 1.2rem;
+  left: -1.1rem;
+  z-index: 2;
+  padding: .55rem .85rem;
+  border-radius: 8px;
+  background: var(--oc-amber-500);
+  color: var(--oc-navy-900);
+  box-shadow: 0 10px 26px rgba(6,31,46,.2);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.oc-hero__urun-karti img {
+  width: 100%;
+  height: 360px;
+  object-fit: contain;
+  display: block;
+  border-radius: 18px;
+  mix-blend-mode: multiply;
+}
+
+.oc-hero__urun-alt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-inline: -.1rem;
+  padding: 1rem .45rem 1.2rem;
+  border-top: 1px solid var(--oc-gray-200);
+  color: var(--oc-navy-800);
+}
+
+.oc-hero__urun-alt div { display: grid; gap: .15rem; }
+.oc-hero__urun-alt > div { min-width: 0; }
+.oc-hero__urun-alt small { color: var(--oc-text-muted); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
+.oc-hero__urun-alt strong { display: block; font-size: 1rem; line-height: 1.35; overflow-wrap: anywhere; }
+.oc-hero__urun-alt a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 50%;
+  background: var(--oc-navy-800);
+  color: var(--oc-white);
+  transition: transform var(--oc-transition), background var(--oc-transition);
+}
+.oc-hero__urun-alt a:hover { transform: translateX(3px); background: var(--oc-navy-600); }
+
+@media (min-width: 1200px) {
+  .oc-hero__urun-karti { transform: rotate(1.5deg) translateX(1rem); }
+}
+
+@media (max-width: 899px) {
+  .oc-hero__in { min-height: auto; }
+  .oc-hero__gorsel { order: 2; padding-top: 1rem; }
+  .oc-hero__urun-karti { max-width: 380px; transform: none; }
+  .oc-hero__urun-karti img { height: 280px; }
+  .oc-hero__baslik { max-width: none; }
+  .oc-hero__backdrop { background-position: 64% center; }
+}
+
+@media (max-width: 575px) {
+  .oc-hero__in { padding-block: 3.5rem; }
+  .oc-hero__baslik { font-size: clamp(2.35rem, 11vw, 3.25rem); }
+  .oc-hero__aksiyon .oc-btn { width: 100%; }
+  .oc-hero__guven { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
+  .oc-hero__guven-sayi { font-size: 1.3rem; }
+  .oc-hero__guven-etiket { font-size: .61rem; }
+  .oc-hero__urun-karti img { height: 230px; }
+}
+
+/* ============================================================
+   BÖLÜM BAŞLIKLARI
+   ============================================================ */
+
+.oc-bolum-basi { margin-bottom: clamp(2rem, 4vw, 3.25rem); }
+.oc-bolum-basi h2 { margin: 0 0 var(--oc-sp-3); }
+.oc-bolum-basi .oc-eyebrow { position: relative; padding-left: 2rem; }
+.oc-bolum-basi .oc-eyebrow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1.35rem;
+  height: 2px;
+  background: var(--oc-amber-500);
+}
+
+.oc-bolum-basi--satir {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--oc-sp-5);
+  flex-wrap: wrap;
+}
+.oc-bolum-basi--satir h2 { margin-bottom: 0; }
+
+/* ============================================================
+   KATEGORİ IZGARASI
+   Sabit yükseklikli hücreler: başlıklar hizalı durur.
+   ============================================================ */
+
+.oc-kat-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+}
+
+.oc-kat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 1.9rem 1.15rem 2rem;
+  background: var(--oc-white);
+  border: 1px solid var(--oc-border);
+  border-radius: 22px;
+  text-decoration: none;
+  transition: border-color var(--oc-transition), box-shadow var(--oc-transition), transform var(--oc-transition);
+}
+
+.oc-kat:hover {
+  border-color: rgba(20,73,106,.35);
+  box-shadow: var(--oc-shadow-lg);
+  transform: translateY(-6px);
+}
+
+.oc-kat__media {
+  width: 136px;
+  height: 136px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, var(--oc-gray-50), var(--oc-gray-100));
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.oc-kat__media img { width: 78%; height: 78%; object-fit: contain; transition: transform 350ms ease; }
+.oc-kat:hover .oc-kat__media img { transform: scale(1.08); }
+
+.oc-kat__ad {
+  font-size: var(--oc-fs-base);
+  font-weight: 700;
+  line-height: var(--oc-lh-snug);
+  color: var(--oc-navy-800);
+  /* Üç satıra kadar aynı yükseklik: başlıklar hizalı kalır. */
+  min-height: calc(var(--oc-fs-base) * var(--oc-lh-snug) * 3);
+  display: flex;
+  /* Üstten hizalı: farklı satır sayısındaki başlıklar aynı çizgide başlar. */
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.oc-kat__sayi {
+  font-size: var(--oc-fs-sm);
+  font-weight: 600;
+  color: var(--oc-text-muted);
+  margin-top: auto;
+}
+
+/* ============================================================
+   DEĞERLER
+   ============================================================ */
+
+.oc-deger-grid {
+  display: grid;
+  gap: var(--oc-sp-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 248px), 1fr));
+}
+
+.oc-deger {
+  position: relative;
+  min-height: 210px;
+  padding: 2rem;
+  background: var(--oc-white);
+  border: 1px solid var(--oc-border);
+  border-radius: var(--oc-radius-lg);
+  overflow: hidden;
+  transition: transform var(--oc-transition), box-shadow var(--oc-transition), border-color var(--oc-transition);
+}
+
+.oc-deger::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--oc-amber-500), transparent);
+}
+
+.oc-deger:hover { transform: translateY(-4px); box-shadow: var(--oc-shadow-lg); border-color: transparent; }
+
+.oc-deger__no {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  background: var(--oc-amber-100);
+  color: var(--oc-amber-600);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.oc-deger__baslik {
+  font-size: var(--oc-fs-lg);
+  font-weight: 700;
+  color: var(--oc-navy-800);
+  margin: 0 0 var(--oc-sp-2);
+}
+
+.oc-deger__metin {
+  font-size: var(--oc-fs-sm);
+  color: var(--oc-gray-700);
+  line-height: var(--oc-lh-base);
+  margin: 0;
+}
+
+/* ============================================================
+   ÇAĞRI ŞERİDİ
+   ============================================================ */
+
+.oc-cta {
+  position: relative;
+  background:
+    radial-gradient(circle at 75% 50%, rgba(255,177,40,.14), transparent 30%),
+    linear-gradient(120deg, var(--oc-navy-900), var(--oc-navy-800));
+  color: var(--oc-white);
+  overflow: hidden;
+}
+.oc-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .12;
+  background: repeating-linear-gradient(135deg, transparent 0 34px, rgba(255,255,255,.12) 35px 36px);
+  pointer-events: none;
+}
+
+.oc-cta__in {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oc-sp-6);
+  flex-wrap: wrap;
+  padding-block: clamp(3.5rem, 6vw, 5rem);
+  position: relative;
+  z-index: 1;
+}
+
+.oc-cta__baslik {
+  color: var(--oc-white);
+  font-size: var(--oc-fs-2xl);
+  margin: 0 0 var(--oc-sp-2);
+  max-width: 34ch;
+}
+
+.oc-cta__metin {
+  color: rgba(255,255,255,.78);
+  margin: 0;
+  max-width: 54ch;
+}
+
+.oc-cta__aksiyon { display: flex; gap: var(--oc-sp-3); flex-wrap: wrap; }
+
+/* ============================================================
+   ALTBİLGİ
+   ============================================================ */
+
+.oc-footer {
+  background: var(--oc-navy-900);
+  color: rgba(255,255,255,.72);
+  padding-block: var(--oc-sp-8) var(--oc-sp-5);
+}
+
+.oc-footer__grid {
+  display: grid;
+  gap: var(--oc-sp-6);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+
+.oc-footer__brand .oc-logo__text { margin-bottom: var(--oc-sp-3); }
+
+.oc-footer__desc {
+  font-size: var(--oc-fs-sm);
+  line-height: var(--oc-lh-base);
+  margin: 0;
+  max-width: 40ch;
+}
+
+.oc-footer__baslik {
+  font-size: var(--oc-fs-sm);
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--oc-white);
+  margin: 0 0 var(--oc-sp-4);
+}
+
+.oc-footer__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--oc-sp-3); }
+
+.oc-footer__list a {
+  color: rgba(255,255,255,.72);
+  text-decoration: none;
+  font-size: var(--oc-fs-sm);
+  transition: color var(--oc-transition);
+}
+.oc-footer__list a:hover { color: var(--oc-amber-500); }
+
+.oc-footer__list--iletisim strong { color: var(--oc-white); font-size: var(--oc-fs-lg); }
+
+.oc-footer__cta { margin-top: var(--oc-sp-4); }
+
+.oc-footer__alt {
+  margin-top: var(--oc-sp-7);
+  padding-top: var(--oc-sp-5);
+  border-top: 1px solid rgba(255,255,255,.12);
+  font-size: var(--oc-fs-sm);
+}
+.oc-footer__alt p { margin: 0; }
+
+/* ============================================================
+   ORCLEAN MARKA, ÜRÜN SLIDER'I VE KURUMSAL SAYFA
+   ============================================================ */
+
+.oc-status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: .45rem;
+  border-radius: 50%;
+  background: #55c98b;
+  box-shadow: 0 0 0 5px rgba(85,201,139,.12);
+  animation: oc-status-pulse 2.2s ease-out infinite;
+}
+@keyframes oc-status-pulse { 0%, 100% { box-shadow: 0 0 0 4px rgba(85,201,139,.12); } 50% { box-shadow: 0 0 0 8px rgba(85,201,139,0); } }
+
+/* Orijinal kırmızı vektör ikon korunur; eski yazı kısmı kırpılır. */
+.oc-logo__mark { width: 43px; height: 43px; overflow: hidden; flex: 0 0 43px; align-items: center; }
+.oc-logo__mark img { display: block; width: auto !important; max-width: none !important; height: 40px !important; }
+.oc-logo__text strong { letter-spacing: .075em; }
+.oc-logo--footer { margin-bottom: 1rem; }
+
+/* Kırpılmış WooCommerce küçük resmi yerine tam oranlı ürün fotoğrafı. */
+.oc-card__media { aspect-ratio: auto; height: 310px; padding: 1.25rem; }
+.oc-card__media img { width: auto !important; height: auto !important; max-width: 92% !important; max-height: 92% !important; object-fit: contain !important; object-position: center !important; }
+
+/* Ana sayfa ürün slider'ı */
+.oc-product-slider { position: relative; }
+.oc-product-slider__head-actions, .oc-product-slider__controls { display: flex; align-items: center; gap: .75rem; }
+.oc-slider-btn { display: inline-grid; place-items: center; width: 48px; height: 48px; padding: 0; border: 1px solid var(--oc-gray-300); border-radius: 50%; background: var(--oc-white); color: var(--oc-navy-800); cursor: pointer; transition: color var(--oc-transition), background var(--oc-transition), transform var(--oc-transition); }
+.oc-slider-btn:hover { color: var(--oc-white); background: var(--oc-navy-800); transform: translateY(-2px); }
+body.orclean .oc-product-slider__track { display: flex !important; grid-template-columns: none !important; gap: 1.25rem; margin: 0; padding: .35rem .2rem 1.6rem; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: inline mandatory; scroll-behavior: smooth; scrollbar-width: none; }
+.oc-product-slider__track::-webkit-scrollbar { display: none; }
+body.orclean .oc-product-slider__track > .oc-card { flex: 0 0 calc((100% - 2.5rem) / 3); min-width: 0; scroll-snap-align: start; }
+
+/* Geniş ekranda dört kart: 12 makine tam üç slayt olur. */
+@media (min-width: 1280px) {
+  body.orclean .oc-product-slider__track > .oc-card { flex: 0 0 calc((100% - 3.75rem) / 4); }
+}
+.oc-product-slider__dots { display: flex; justify-content: center; gap: .45rem; }
+.oc-product-slider__dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 99px; background: var(--oc-gray-300); transition: width var(--oc-transition), background var(--oc-transition); }
+.oc-product-slider__dots button.is-active { width: 26px; background: var(--oc-amber-500); }
+
+/* Kurumsal hero */
+.oc-about-hero { position: relative; isolation: isolate; padding-block: clamp(5rem, 9vw, 8.5rem); color: var(--oc-white); background: radial-gradient(circle at 80% 20%, rgba(255,177,40,.22), transparent 30%), linear-gradient(120deg, #061f2e 0%, #0b3954 62%, #123d55 100%); overflow: hidden; }
+.oc-about-hero::after { content: ""; position: absolute; z-index: -1; inset: 0; opacity: .18; background: repeating-linear-gradient(115deg, transparent 0 72px, rgba(255,255,255,.1) 73px 74px); }
+.oc-about-hero__grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(300px, .7fr); gap: clamp(3rem, 8vw, 8rem); align-items: center; }
+body.orclean .oc-about-hero h1 { max-width: 14ch; margin: 0 0 1.5rem; color: var(--oc-white); font-size: clamp(2.7rem, 5vw, 4.9rem); letter-spacing: -.045em; }
+.oc-about-hero > .oc-container > div > p { max-width: 62ch; color: rgba(255,255,255,.76); font-size: 1.1rem; line-height: 1.75; }
+.oc-about-hero__actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 2rem; }
+.oc-contact-card { display: grid; gap: .75rem; padding: 2rem; border: 1px solid rgba(255,255,255,.16); border-radius: 22px; background: rgba(255,255,255,.08); box-shadow: 0 25px 70px rgba(0,0,0,.22); backdrop-filter: blur(18px); }
+.oc-contact-card__status { margin-bottom: 1rem; color: rgba(255,255,255,.72); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.oc-contact-card strong { color: var(--oc-white); font-size: clamp(1.8rem, 3vw, 2.7rem); line-height: 1.1; }
+.oc-contact-card a { color: var(--oc-white); font-weight: 700; text-decoration: none; }
+.oc-contact-card p { margin: .6rem 0 0; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.14); color: rgba(255,255,255,.72); font-size: .9rem; }
+
+.oc-about-story__intro { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 7vw, 7rem); align-items: start; margin-bottom: 4rem; }
+.oc-about-story__intro h2 { max-width: 12ch; margin: 0; }
+.oc-about-story__copy { max-width: 68ch; color: var(--oc-gray-700); font-size: 1.05rem; }
+.oc-about-story__copy p { margin: 0 0 1rem; }
+.oc-about-pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.oc-about-pillars article { min-height: 245px; padding: 2rem; border: 1px solid var(--oc-border); border-radius: 20px; background: var(--oc-white); transition: transform var(--oc-transition), box-shadow var(--oc-transition); }
+.oc-about-pillars article:hover { transform: translateY(-5px); box-shadow: var(--oc-shadow-lg); }
+.oc-about-pillars article > span { display: inline-grid; place-items: center; width: 42px; height: 42px; margin-bottom: 2.2rem; border-radius: 12px; background: var(--oc-amber-100); color: var(--oc-amber-600); font-size: .75rem; font-weight: 800; }
+.oc-about-pillars h3 { margin: 0 0 .8rem; font-size: 1.15rem; }
+.oc-about-pillars p { margin: 0; color: var(--oc-gray-700); font-size: .9rem; line-height: 1.7; }
+
+/* Paylaşılan 30. yıl alanının ORCLEAN uyarlaması. */
+.oc-experience { position: relative; overflow: hidden; padding-block: clamp(4.5rem, 8vw, 7rem); color: var(--oc-white); background: linear-gradient(120deg, #7d1d24, #a32b2b 55%, #76191f); }
+.oc-experience::before { content: ""; position: absolute; inset: -50%; background: radial-gradient(circle, rgba(255,255,255,.11) 0 1px, transparent 2px); background-size: 32px 32px; transform: rotate(10deg); opacity: .25; }
+.oc-experience__inner { position: relative; display: grid; grid-template-columns: minmax(260px, .75fr) 1.25fr; gap: clamp(3rem, 10vw, 9rem); align-items: center; }
+.oc-experience__emblem { position: relative; display: flex; align-items: baseline; justify-content: center; width: min(100%, 370px); aspect-ratio: 1; margin-inline: auto; }
+.oc-experience__number { align-self: center; color: var(--oc-white); font-size: clamp(7rem, 15vw, 12rem); font-weight: 800; line-height: 1; letter-spacing: -.09em; }
+.oc-experience__plus { align-self: center; color: rgba(255,255,255,.75); font-size: 3rem; font-weight: 700; }
+.oc-experience__orbit { position: absolute; inset: 8%; border: 1px solid rgba(255,255,255,.23); border-radius: 50%; animation: oc-orbit 18s linear infinite; }
+.oc-experience__orbit i { position: absolute; width: 10px; height: 10px; border: 2px solid #fff; border-radius: 50%; background: #9a2929; }
+.oc-experience__orbit i:nth-child(1) { top: -5px; left: 50%; } .oc-experience__orbit i:nth-child(2) { top: 22%; right: 2%; } .oc-experience__orbit i:nth-child(3) { right: 10%; bottom: 12%; } .oc-experience__orbit i:nth-child(4) { bottom: -5px; left: 42%; } .oc-experience__orbit i:nth-child(5) { left: 2%; bottom: 25%; } .oc-experience__orbit i:nth-child(6) { left: 8%; top: 15%; }
+@keyframes oc-orbit { to { transform: rotate(360deg); } }
+.oc-experience__copy > span { display: block; margin-bottom: .8rem; color: rgba(255,255,255,.68); font-size: .75rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+body.orclean .oc-experience h2 { max-width: 16ch; margin: 0 0 1.25rem; color: var(--oc-white); font-size: clamp(2rem, 4vw, 3.7rem); }
+.oc-experience__copy p { max-width: 58ch; margin: 0; color: rgba(255,255,255,.75); font-size: 1.05rem; }
+
+.oc-purpose { background: var(--oc-gray-50); }
+.oc-purpose__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.oc-purpose__grid article { padding: clamp(1.6rem, 3vw, 2.5rem); border-radius: 20px; background: var(--oc-white); box-shadow: var(--oc-shadow-sm); }
+.oc-purpose__grid article > span { color: var(--oc-amber-600); font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.oc-purpose__grid h3 { margin: 1rem 0; font-size: 1.35rem; }
+.oc-purpose__grid p { margin: 0; color: var(--oc-gray-700); line-height: 1.75; }
+
+.oc-service-band { padding-block: clamp(4rem, 7vw, 6rem); color: var(--oc-white); background: var(--oc-navy-900); }
+.oc-service-band__inner { display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: clamp(2rem, 8vw, 8rem); }
+body.orclean .oc-service-band h2 { max-width: 18ch; margin: 0 0 1rem; color: var(--oc-white); }
+.oc-service-band p { max-width: 60ch; margin: 0; color: rgba(255,255,255,.7); }
+.oc-service-band__contact { display: grid; justify-items: start; gap: .6rem; padding-left: 2rem; border-left: 1px solid rgba(255,255,255,.16); }
+.oc-service-band__contact strong { color: var(--oc-white); font-size: 1.6rem; }
+.oc-service-band__contact span { margin-bottom: 1rem; color: rgba(255,255,255,.65); font-size: .85rem; }
+
+@media (max-width: 991px) {
+  body.orclean .oc-product-slider__track > .oc-card { flex-basis: calc((100% - 1.25rem) / 2); }
+  .oc-about-hero__grid, .oc-about-story__intro, .oc-experience__inner, .oc-service-band__inner { grid-template-columns: minmax(0, 1fr); }
+  .oc-about-pillars, .oc-purpose__grid { grid-template-columns: repeat(2, 1fr); }
+  .oc-contact-card { max-width: 560px; }
+  .oc-experience__emblem { max-width: 310px; }
+  .oc-service-band__contact { padding: 0; border: 0; }
+}
+@media (max-width: 600px) {
+  .oc-card__media { height: 270px; }
+  .oc-product-slider__head-actions { width: 100%; justify-content: space-between; }
+  .oc-product-slider__head-actions .oc-btn { min-height: 46px; padding-inline: 1rem; }
+  body.orclean .oc-product-slider__track > .oc-card { flex-basis: 88%; }
+  .oc-about-pillars, .oc-purpose__grid { grid-template-columns: minmax(0, 1fr); }
+  .oc-about-hero__actions .oc-btn { width: 100%; }
+  .oc-experience__inner { gap: 1.5rem; }
+  .oc-experience__emblem { max-width: 250px; }
+}
+@media (prefers-reduced-motion: reduce) { .oc-status-dot, .oc-experience__orbit { animation: none; } }
+
+/* ============================================================
+   KAHRAMAN SLIDER'I
+   Slaytlar aynı ızgara hücresinde üst üste durur; yükseklik en
+   uzun slayta göre oluşur, geçiş çapraz solma ile yapılır.
+   ============================================================ */
+
+.oc-hero-slider { position: relative; width: min(100%, 430px); }
+
+.oc-hero-slider__viewport { display: grid; }
+
+.oc-hero-slider__slayt {
+  grid-area: 1 / 1;
+  position: relative;
+  padding: 1rem 1rem 0;
+  background: rgba(255,255,255,.96);
+  border: 1px solid rgba(255,255,255,.72);
+  border-radius: 26px;
+  box-shadow: 0 35px 90px rgba(0,0,0,.34), 0 1px 0 rgba(255,255,255,.75) inset;
+  transform: rotate(1.5deg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 420ms ease, visibility 420ms ease;
+  pointer-events: none;
+}
+
+.oc-hero-slider__slayt.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.oc-hero-slider__slayt img {
+  width: 100%;
+  height: 360px;
+  object-fit: contain;
+  display: block;
+  border-radius: 18px;
+  mix-blend-mode: multiply;
+}
+
+/* Oklar */
+.oc-hero-slider__ok {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,.94);
+  color: var(--oc-navy-800);
+  border: 1px solid var(--oc-border);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(6,31,46,.22);
+  transition: background var(--oc-transition), color var(--oc-transition),
+              transform var(--oc-transition);
+}
+
+.oc-hero-slider__ok:hover {
+  background: var(--oc-navy-800);
+  color: var(--oc-white);
+}
+
+.oc-hero-slider__ok:focus-visible { outline: 3px solid var(--oc-amber-500); outline-offset: 2px; }
+
+.oc-hero-slider__ok--geri  { left: -18px; }
+.oc-hero-slider__ok--ileri { right: -18px; }
+
+.oc-hero-slider__ok--geri:hover  { transform: translateY(-50%) translateX(-2px); }
+.oc-hero-slider__ok--ileri:hover { transform: translateY(-50%) translateX(2px); }
+
+/* Noktalar: aktif olan, otomatik geçiş süresini gösteren bir çubuğa dönüşür */
+.oc-hero-slider__noktalar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  margin-top: 1.25rem;
+}
+
+.oc-hero-slider__nokta {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.3);
+  cursor: pointer;
+  overflow: hidden;
+  transition: width 360ms ease, background 360ms ease;
+}
+
+.oc-hero-slider__nokta:focus-visible { outline: 2px solid var(--oc-amber-500); outline-offset: 3px; }
+
+.oc-hero-slider__nokta.is-active {
+  width: 42px;
+  background: rgba(255,255,255,.28);
+}
+
+.oc-hero-slider__nokta-dolgu {
+  position: absolute;
+  inset: 0;
+  width: 0;
+  background: var(--oc-amber-500);
+  border-radius: inherit;
+}
+
+.oc-hero-slider__nokta.is-active .oc-hero-slider__nokta-dolgu {
+  animation: oc-nokta-dolum var(--oc-slider-sure, 6000ms) linear forwards;
+}
+
+@keyframes oc-nokta-dolum {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@media (max-width: 899px) {
+  .oc-hero-slider { max-width: 380px; margin-inline: auto; }
+  .oc-hero-slider__slayt { transform: none; }
+  .oc-hero-slider__slayt img { height: 280px; }
+  .oc-hero-slider__ok--geri  { left: -8px; }
+  .oc-hero-slider__ok--ileri { right: -8px; }
+}
+
+@media (max-width: 600px) {
+  .oc-hero-slider__slayt img { height: 230px; }
+  .oc-hero-slider__ok { width: 40px; height: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oc-hero-slider__slayt { transition: none; }
+  .oc-hero-slider__nokta.is-active .oc-hero-slider__nokta-dolgu { animation: none; width: 100%; }
+}
+
+/* ============================================================
+   LOGO
+   Logo dosyası zaten "ORCLEAN" yazısını içerdiği için yanına
+   marka adı tekrar yazılmaz; yalnızca tanımlayıcı alt yazı durur.
+   ============================================================ */
+
+.oc-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: .85rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+/* Üstbilgi, içeriğe göre daha geniş: logo sayfanın soluna daha yakın durur. */
+.oc-header .oc-container { max-width: 1600px; }
+
+/* Kurumsal logo yatay ve genis (en/boy ~4,17). Yukseklik buna gore
+   ayarlandi; alt yazi logonun kendi icinde oldugu icin ayrica yazilmiyor. */
+.oc-logo__gorsel {
+  display: block;
+  width: auto;
+  height: 58px;
+  max-width: 100%;
+  transition: transform var(--oc-transition);
+}
+
+.oc-logo:hover .oc-logo__gorsel { transform: scale(1.03); }
+
+.oc-logo__alt-yazi {
+  position: relative;
+  padding-left: .85rem;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--oc-text-muted);
+  white-space: nowrap;
+}
+
+.oc-logo__alt-yazi::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 26px;
+  background: var(--oc-border);
+}
+
+.oc-logo__alt-yazi--footer { color: rgba(255,255,255,.55); }
+.oc-logo__alt-yazi--footer::before { background: rgba(255,255,255,.2); }
+
+.oc-logo--footer .oc-logo__gorsel { height: 48px; }
+
+/* Altbilgi sütunu dar; yazı sarmalanabilsin, yan sütuna taşmasın. */
+.oc-logo--footer { flex-wrap: wrap; max-width: 100%; }
+.oc-logo--footer .oc-logo__alt-yazi {
+  white-space: normal;
+  font-size: .62rem;
+  line-height: 1.3;
+}
+
+@media (max-width: 1240px) {
+  .oc-logo--footer .oc-logo__alt-yazi { display: none; }
+}
+
+@media (max-width: 1100px) {
+  .oc-logo__alt-yazi { display: none; }
+}
+
+@media (max-width: 600px) {
+  .oc-logo__gorsel { height: 44px; }
+  .oc-logo--footer .oc-logo__gorsel { height: 46px; }
+}
+
+/* ============================================================
+   ÜSTBİLGİ: TELEFON VE SOSYAL MEDYA ANİMASYONLARI
+   ============================================================ */
+
+/* Telefon: simge kendi kendine sallanır, üzerine gelince hızlanır. */
+.oc-topbar__tel {
+  gap: .55rem;
+  padding: .25rem .6rem;
+  border-radius: 999px;
+  transition: background var(--oc-transition), color var(--oc-transition);
+}
+
+.oc-topbar__tel:hover { background: rgba(255,255,255,.08); }
+
+.oc-tel-ikon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255,177,40,.16);
+  color: var(--oc-amber-500);
+  transform-origin: 50% 70%;
+  animation: oc-tel-calis 3.2s ease-in-out infinite;
+}
+
+.oc-topbar__tel:hover .oc-tel-ikon {
+  background: var(--oc-amber-500);
+  color: var(--oc-navy-900);
+  animation-duration: 1s;
+}
+
+@keyframes oc-tel-calis {
+  0%, 62%, 100% { transform: rotate(0deg); }
+  66% { transform: rotate(-12deg); }
+  70% { transform: rotate(11deg); }
+  74% { transform: rotate(-9deg); }
+  78% { transform: rotate(7deg); }
+  82% { transform: rotate(-4deg); }
+  86% { transform: rotate(0deg); }
+}
+
+.oc-topbar__tel-no { font-variant-numeric: tabular-nums; }
+
+/* Sosyal medya simgeleri */
+.oc-sosyal {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 .85rem;
+  position: relative;
+}
+
+.oc-sosyal::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 20px;
+  background: rgba(255,255,255,.18);
+}
+
+.oc-sosyal__baglanti {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: rgba(255,255,255,.72);
+  border: 1px solid rgba(255,255,255,.16);
+  text-decoration: none;
+  transition: color 220ms cubic-bezier(.34,1.56,.64,1),
+              background 220ms ease,
+              border-color 220ms ease,
+              transform 220ms cubic-bezier(.34,1.56,.64,1);
+}
+
+.oc-sosyal__baglanti:hover,
+.oc-sosyal__baglanti:focus-visible {
+  transform: translateY(-3px) scale(1.08);
+  color: var(--oc-navy-900);
+  background: var(--oc-amber-500);
+  border-color: var(--oc-amber-500);
+}
+
+.oc-sosyal__baglanti svg { transition: transform 220ms cubic-bezier(.34,1.56,.64,1); }
+.oc-sosyal__baglanti:hover svg { transform: rotate(-8deg); }
+
+/* Sayfa açılışında sırayla belirirler. */
+.oc-sosyal li {
+  opacity: 0;
+  animation: oc-sosyal-gir 420ms cubic-bezier(.34,1.56,.64,1) forwards;
+}
+.oc-sosyal li:nth-child(1) { animation-delay: .25s; }
+.oc-sosyal li:nth-child(2) { animation-delay: .35s; }
+.oc-sosyal li:nth-child(3) { animation-delay: .45s; }
+.oc-sosyal li:nth-child(4) { animation-delay: .55s; }
+
+@keyframes oc-sosyal-gir {
+  from { opacity: 0; transform: translateY(-6px) scale(.85); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 767px) {
+  .oc-sosyal { padding-left: .5rem; }
+  .oc-sosyal::before { display: none; }
+  .oc-topbar__tel-no { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oc-tel-ikon { animation: none; }
+  .oc-sosyal li { opacity: 1; animation: none; }
+  .oc-sosyal__baglanti:hover { transform: none; }
+  .oc-sosyal__baglanti:hover svg { transform: none; }
+  .oc-logo:hover .oc-logo__gorsel { transform: none; }
+}
+
+/* ============================================================
+   KULLANIM ALANLARI
+   ============================================================ */
+
+.oc-bolum-basi--orta {
+  text-align: center;
+  max-width: 62ch;
+  margin-inline: auto;
+}
+.oc-bolum-basi--orta .oc-lead { margin-inline: auto; }
+
+.oc-alanlar {
+  padding-block: clamp(4rem, 6vw, 6rem);
+  background: var(--oc-bg-soft);
+  border-top: 1px solid var(--oc-border);
+}
+
+.oc-alan-grid {
+  display: grid;
+  gap: 1.15rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 268px), 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.oc-alan {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  padding: 1.6rem 1.5rem;
+  background: var(--oc-white);
+  border: 1px solid var(--oc-border);
+  border-radius: var(--oc-radius-lg);
+  transition: border-color var(--oc-transition), box-shadow var(--oc-transition),
+              transform var(--oc-transition);
+}
+
+.oc-alan:hover {
+  border-color: var(--oc-navy-600);
+  box-shadow: var(--oc-shadow-lg);
+  transform: translateY(-4px);
+}
+
+.oc-alan__ikon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: .35rem;
+  border-radius: 14px;
+  background: var(--oc-amber-100);
+  color: var(--oc-navy-800);
+  transition: background var(--oc-transition), color var(--oc-transition), transform var(--oc-transition);
+}
+
+.oc-alan:hover .oc-alan__ikon {
+  background: var(--oc-amber-500);
+  color: var(--oc-navy-900);
+  transform: rotate(-6deg) scale(1.05);
+}
+
+.oc-alan__ad {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--oc-navy-800);
+  margin: 0;
+}
+
+.oc-alan__not {
+  font-size: var(--oc-fs-sm);
+  color: var(--oc-gray-700);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   SÜREÇ ADIMLARI
+   ============================================================ */
+
+.oc-surec { padding-block: clamp(4rem, 6vw, 6rem); }
+
+.oc-surec-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: oc-adim;
+}
+
+.oc-adim {
+  position: relative;
+  padding-top: 1.75rem;
+  border-top: 2px solid var(--oc-border);
+  transition: border-color var(--oc-transition);
+}
+
+.oc-adim:hover { border-top-color: var(--oc-amber-500); }
+
+.oc-adim__no {
+  position: absolute;
+  top: -0.95rem;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--oc-navy-800);
+  color: var(--oc-white);
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+  transition: background var(--oc-transition), color var(--oc-transition);
+}
+
+.oc-adim:hover .oc-adim__no {
+  background: var(--oc-amber-500);
+  color: var(--oc-navy-900);
+}
+
+.oc-adim__baslik {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--oc-navy-800);
+  margin: 1.5rem 0 .5rem;
+}
+
+.oc-adim__metin {
+  font-size: var(--oc-fs-sm);
+  color: var(--oc-gray-700);
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oc-alan:hover { transform: none; }
+  .oc-alan:hover .oc-alan__ikon { transform: none; }
+}
+
+/* ============================================================
+   ÜSTBİLGİ: ÇALIŞMA SAATİ ANİMASYONU
+   ============================================================ */
+
+.oc-topbar__slogan {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.oc-saat-ikon {
+  display: inline-flex;
+  color: var(--oc-amber-500);
+  flex-shrink: 0;
+}
+
+/* Yelkovan sürekli döner, akrep çok yavaş ilerler. */
+.oc-saat-yelkovan {
+  transform-origin: 12px 12px;
+  animation: oc-saat-don 4s linear infinite;
+}
+.oc-saat-akrep {
+  transform-origin: 12px 12px;
+  animation: oc-saat-don 48s linear infinite;
+}
+
+@keyframes oc-saat-don {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Metin, arada bir soldan sağa geçen bir parlaklıkla canlanır. */
+.oc-mesai-metin {
+  background-image: linear-gradient(
+    100deg,
+    rgba(255,255,255,.82) 0%,
+    rgba(255,255,255,.82) 38%,
+    var(--oc-amber-500) 50%,
+    rgba(255,255,255,.82) 62%,
+    rgba(255,255,255,.82) 100%
+  );
+  background-size: 260% 100%;
+  background-position: 120% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: oc-metin-parla 7s ease-in-out infinite;
+}
+
+@keyframes oc-metin-parla {
+  0%, 62%  { background-position: 120% 0; }
+  88%, 100% { background-position: -20% 0; }
+}
+
+/* ============================================================
+   ANA SAYFA: ÜRÜN ARAMA
+   ============================================================ */
+
+.oc-arama {
+  padding-block: clamp(2.5rem, 4vw, 3.5rem);
+  background: var(--oc-bg-soft);
+  border-bottom: 1px solid var(--oc-border);
+}
+
+.oc-arama__in { display: grid; gap: 1.15rem; }
+
+.oc-arama__baslik {
+  font-size: clamp(1.25rem, .9rem + 1.1vw, 1.625rem);
+  margin: 0 0 .3rem;
+}
+
+.oc-arama__not {
+  margin: 0;
+  font-size: var(--oc-fs-sm);
+  color: var(--oc-text-muted);
+}
+
+.oc-arama__form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .5rem;
+  background: var(--oc-white);
+  border: 1px solid var(--oc-gray-300);
+  border-radius: 999px;
+  box-shadow: var(--oc-shadow-sm);
+  transition: border-color var(--oc-transition), box-shadow var(--oc-transition);
+}
+
+.oc-arama__form:focus-within {
+  border-color: var(--oc-navy-600);
+  box-shadow: var(--oc-ring);
+}
+
+.oc-arama__ikon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  flex-shrink: 0;
+  color: var(--oc-text-muted);
+}
+
+.oc-arama__form input[type="search"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: .7rem .25rem;
+  border: 0;
+  background: transparent;
+  font-family: var(--oc-font);
+  font-size: var(--oc-fs-base);
+  color: var(--oc-text);
+}
+.oc-arama__form input[type="search"]:focus { outline: none; }
+.oc-arama__form input[type="search"]::placeholder { color: var(--oc-gray-500); }
+
+.oc-arama__form .oc-btn {
+  flex-shrink: 0;
+  border-radius: 999px;
+  min-height: 44px;
+  padding-inline: 1.5rem;
+}
+
+.oc-arama__hizli {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem;
+  margin: 0;
+  font-size: var(--oc-fs-sm);
+  color: var(--oc-text-muted);
+}
+
+.oc-arama__hizli a {
+  padding: .3rem .8rem;
+  background: var(--oc-white);
+  border: 1px solid var(--oc-border);
+  border-radius: 999px;
+  color: var(--oc-gray-700);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--oc-transition);
+}
+.oc-arama__hizli a:hover {
+  background: var(--oc-navy-800);
+  border-color: var(--oc-navy-800);
+  color: var(--oc-white);
+}
+
+@media (max-width: 600px) {
+  .oc-arama__form { flex-wrap: wrap; border-radius: var(--oc-radius-lg); }
+  .oc-arama__form .oc-btn { width: 100%; }
+}
+
+/* ============================================================
+   YUKARI ÇIK DÜĞMESİ
+   ============================================================ */
+
+.oc-yukari {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  color: var(--oc-white);
+  background: var(--oc-navy-800);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(6,31,46,.3);
+  opacity: 0;
+  transform: translateY(14px) scale(.85);
+  transition: opacity 260ms ease, transform 260ms cubic-bezier(.34,1.56,.64,1),
+              background 200ms ease;
+}
+
+.oc-yukari[hidden] { display: none; }
+
+.oc-yukari.is-gorunur {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.oc-yukari:hover {
+  background: var(--oc-amber-500);
+  color: var(--oc-navy-900);
+}
+
+.oc-yukari:focus-visible {
+  outline: 3px solid var(--oc-amber-500);
+  outline-offset: 3px;
+}
+
+.oc-yukari svg:first-child {
+  position: relative;
+  z-index: 1;
+  transition: transform 220ms cubic-bezier(.34,1.56,.64,1);
+}
+.oc-yukari:hover svg:first-child { transform: translateY(-2px); }
+
+/* Kenardaki halka, sayfanın ne kadarının okunduğunu gösterir. */
+.oc-yukari__halka {
+  position: absolute;
+  inset: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.oc-yukari__iz { stroke: rgba(255,255,255,.18); }
+
+.oc-yukari__ilerleme {
+  stroke: var(--oc-amber-500);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 120ms linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oc-saat-yelkovan,
+  .oc-saat-akrep { animation: none; }
+  .oc-mesai-metin {
+    animation: none;
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    color: rgba(255,255,255,.82);
+  }
+  .oc-yukari { transition: opacity 200ms ease; transform: none; }
+  .oc-yukari.is-gorunur { transform: none; }
+  .oc-yukari:hover svg:first-child { transform: none; }
+}
+
+/* ============================================================
+   ÜRÜN AÇIKLAMASI BÖLÜMÜ
+   ============================================================ */
+
+/* ============================================================
+   ORTAK BAŞLIK BANDI (.oc-bant)
+   Ürün sayfaları ve tüm iç sayfalar aynı bandı kullanır:
+   sabit endüstriyel görsel + koyu gradyan örtü.
+   ============================================================ */
+
+.oc-bant {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(2.25rem, 3vw, 3.25rem);
+  background: var(--oc-navy-900);
+  color: var(--oc-white);
+}
+
+/* Sabit görsel: her sayfada aynı, ürün fotoğrafından bağımsız. */
+.oc-bant__fon {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.oc-bant__fon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 62%;
+}
+
+/* Okunurluğu garantileyen koyu örtü. */
+.oc-bant::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(97deg, rgba(6,31,46,.95) 0%, rgba(11,57,84,.88) 46%, rgba(11,57,84,.62) 100%),
+    radial-gradient(circle at 88% 18%, rgba(255,177,40,.22), transparent 42%);
+  pointer-events: none;
+}
+
+.oc-bant__in {
+  position: relative;
+  z-index: 1;
+  max-width: 62ch;
+}
+
+.oc-bant__iz {
+  margin: 0 0 .7rem;
+  font-size: var(--oc-fs-sm);
+  color: rgba(255,255,255,.7);
+}
+.oc-bant__iz a { color: rgba(255,255,255,.9); text-decoration: none; }
+.oc-bant__iz a:hover { color: var(--oc-amber-500); }
+.oc-bant__iz-ayrac { margin-inline: .4rem; color: rgba(255,255,255,.45); }
+
+.oc-bant__etiket {
+  display: inline-block;
+  margin-bottom: .55rem;
+  font-size: var(--oc-fs-xs);
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--oc-amber-500);
+}
+
+.oc-bant__baslik {
+  margin: 0;
+  font-size: clamp(1.6rem, 1.1rem + 1.7vw, 2.5rem);
+  text-shadow: 0 2px 20px rgba(6,31,46,.5);
+  overflow-wrap: anywhere;
+}
+
+.oc-bant__aciklama {
+  margin: .8rem 0 0;
+  max-width: 56ch;
+  color: rgba(255,255,255,.8);
+  font-size: var(--oc-fs-base);
+  line-height: 1.7;
+}
+
+/* Kategori etiketleri (ürün bandı) */
+.oc-bant__etiketler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  list-style: none;
+  margin: 1.05rem 0 0;
+  padding: 0;
+}
+
+.oc-bant__etiketler a {
+  display: inline-flex;
+  align-items: center;
+  padding: .38rem .9rem;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 999px;
+  font-size: var(--oc-fs-xs);
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.92);
+  text-decoration: none;
+  transition: background var(--oc-transition), border-color var(--oc-transition),
+              color var(--oc-transition);
+}
+
+.oc-bant__etiketler a:hover,
+.oc-bant__etiketler a:focus-visible {
+  background: var(--oc-amber-500);
+  border-color: var(--oc-amber-500);
+  color: var(--oc-navy-900);
+}
+
+@media (max-width: 599px) {
+  .oc-bant { padding-block: 1.75rem; }
+  .oc-bant__in { max-width: none; }
+}
+
+
+/* ---- Üstbilgi arama çubuğu ---- */
+
+.oc-nav-arama {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex: 1 1 auto;
+  max-width: 420px;
+  min-width: 0;
+  margin-inline: auto;
+  padding: .3rem .3rem .3rem .9rem;
+  background: var(--oc-white);
+  border: 1px solid var(--oc-border);
+  /* Tam yuvarlak hap yerine yumuşak köşe: daha kurumsal bir görünüm. */
+  border-radius: 12px;
+  box-shadow: inset 0 1px 2px rgba(11,57,84,.05);
+  transition: border-color var(--oc-transition), box-shadow var(--oc-transition);
+}
+
+.oc-nav-arama:focus-within {
+  border-color: var(--oc-navy-600);
+  box-shadow: 0 0 0 3px rgba(11,57,84,.10);
+}
+
+/* Soldaki ince büyüteç: alanın ne olduğunu anında belli eder. */
+.oc-nav-arama__ikon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  color: var(--oc-gray-500);
+}
+
+.oc-nav-arama input[type="search"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: .5rem .3rem;
+  border: 0;
+  background: transparent;
+  font-family: var(--oc-font);
+  font-size: var(--oc-fs-sm);
+  color: var(--oc-text);
+}
+.oc-nav-arama input[type="search"]:focus { outline: none; }
+.oc-nav-arama input[type="search"]::placeholder { color: var(--oc-gray-500); }
+
+.oc-nav-arama__gonder {
+  display: grid;
+  place-items: center;
+  /* flex ve tema buton dolgusu genişliği bozup oval çıkarıyordu. */
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 9px;
+  background: var(--oc-navy-800);
+  color: var(--oc-white);
+  line-height: 0;
+  cursor: pointer;
+  transition: background var(--oc-transition), color var(--oc-transition);
+}
+.oc-nav-arama__gonder:hover {
+  background: var(--oc-amber-500);
+  color: var(--oc-navy-900);
+}
+.oc-nav-arama__gonder:focus-visible {
+  outline: 2px solid var(--oc-navy-600);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1199px) {
+  .oc-nav-arama { max-width: 260px; }
+}
+
+@media (max-width: 991px) {
+  .oc-nav-arama { order: 3; max-width: none; width: 100%; margin: .75rem 0 0; }
+  .oc-nav__in { flex-wrap: wrap; }
+}
+
+/* Açıklama + yan sütun */
+.oc-alt-bolum {
+  padding-block: clamp(3rem, 5vw, 4.5rem);
+  border-top: 1px solid var(--oc-border);
+}
+
+.oc-alt-bolum__grid {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .oc-alt-bolum__grid { grid-template-columns: minmax(0, 1fr) 340px; }
+}
+
+.oc-alt-bolum__ana { min-width: 0; }
+
+.oc-desc__icerik {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--oc-gray-700);
+}
+
+/* Yapışkan yan kart */
+.oc-yan { display: grid; gap: 1rem; }
+
+@media (min-width: 992px) {
+  .oc-yan { position: sticky; top: 1.5rem; }
+}
+
+.oc-yan__kart {
+  padding: 1.5rem;
+  background: var(--oc-white);
+  border: 1px solid var(--oc-border);
+  border-top: 3px solid var(--oc-amber-500);
+  border-radius: var(--oc-radius-lg);
+  box-shadow: var(--oc-shadow);
+}
+
+.oc-yan__baslik {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--oc-navy-800);
+  margin: 0 0 1rem;
+}
+
+.oc-yan__ozet { margin: 0 0 1.25rem; display: grid; gap: .1rem; }
+
+.oc-yan__satir {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .6rem 0;
+  border-bottom: 1px solid var(--oc-border);
+}
+.oc-yan__satir:last-child { border-bottom: 0; }
+
+.oc-yan__satir dt {
+  font-size: var(--oc-fs-sm);
+  font-weight: 600;
+  color: var(--oc-text-muted);
+  margin: 0;
+  flex-shrink: 0;
+  max-width: 55%;
+}
+
+.oc-yan__satir dd {
+  font-size: var(--oc-fs-sm);
+  font-weight: 700;
+  color: var(--oc-navy-800);
+  margin: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.oc-yan__iletisim {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--oc-border);
+  display: grid;
+  gap: .85rem;
+}
+
+.oc-yan__iletisim li { display: grid; gap: .1rem; }
+
+.oc-yan__etiket {
+  font-size: var(--oc-fs-xs);
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--oc-text-muted);
+}
+
+.oc-yan__iletisim a {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--oc-navy-800);
+  text-decoration: none;
+}
+.oc-yan__iletisim a:hover { color: var(--oc-amber-600); }
+
+.oc-yan__guven {
+  padding: 1.15rem 1.35rem;
+  background: var(--oc-bg-soft);
+  border: 1px solid var(--oc-border);
+  border-radius: var(--oc-radius);
+  display: grid;
+  gap: .6rem;
+}
+.oc-yan__guven p {
+  margin: 0;
+  font-size: var(--oc-fs-sm);
+  color: var(--oc-gray-700);
+  line-height: 1.5;
+}
+.oc-yan__guven strong { color: var(--oc-navy-800); }
+
+.oc-desc__icerik > *:first-child { margin-top: 0; }
+.oc-desc__icerik p { margin: 0 0 1.15rem; }
+
+.oc-desc__icerik h2,
+.oc-desc__icerik h3,
+.oc-desc__icerik h4 {
+  margin: 2rem 0 .85rem;
+  color: var(--oc-navy-800);
+}
+.oc-desc__icerik h3 { font-size: 1.375rem; }
+.oc-desc__icerik h4 { font-size: 1.125rem; }
+
+.oc-desc__icerik ul,
+.oc-desc__icerik ol { margin: 0 0 1.25rem; padding-left: 1.35rem; }
+.oc-desc__icerik li { margin-bottom: .55rem; }
+
+/* İçerikteki satır içi stilli kutuları sakinleştir. */
+.oc-desc__icerik div[style] {
+  background: var(--oc-gray-50) !important;
+  border: 1px solid var(--oc-border) !important;
+  border-left: 3px solid var(--oc-amber-500) !important;
+  border-radius: var(--oc-radius) !important;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem) !important;
+  max-width: none !important;
+}
+.oc-desc__icerik div[style] h3 { color: var(--oc-navy-800) !important; margin-top: 0; }
+
+/* ============================================================
+   DEĞERLENDİRMELER
+   ============================================================ */
+
+.oc-degerlendirme {
+  padding-block: clamp(3rem, 5vw, 4.5rem);
+  background: var(--oc-bg-soft);
+  border-top: 1px solid var(--oc-border);
+}
+
+.oc-degerlendirme__kutu {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--oc-white);
+  border: 1px solid var(--oc-border);
+  border-radius: var(--oc-radius-lg);
+  box-shadow: var(--oc-shadow-sm);
+}
+
+/* XStore'un iki sütuna bölen düzenini sıfırla. */
+.oc-degerlendirme #reviews,
+.oc-degerlendirme #comments,
+.oc-degerlendirme #review_form_wrapper,
+.oc-degerlendirme #review_form {
+  width: 100% !important;
+  max-width: none !important;
+  float: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* İki sütun: solda mevcut görüşler, sağda yazma formu.
+   DİKKAT: bu blok yukarıdaki sıfırlamadan SONRA gelmek zorunda.
+   Sıfırlamadaki `padding: 0 !important`, eşit özgüllükte olduğu için
+   daha önce yazılan `padding-left` değerini eziyordu; form sütunu
+   ayırıcı çizgiye yapışık kalıyordu. */
+@media (min-width: 900px) {
+  .oc-degerlendirme__kutu #reviews {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+    gap: clamp(3rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  .oc-degerlendirme__kutu #comments {
+    padding-right: clamp(.5rem, 1vw, 1rem) !important;
+  }
+
+  .oc-degerlendirme__kutu #review_form_wrapper {
+    margin-top: 0 !important;
+    padding: 0 0 0 clamp(3rem, 4.5vw, 4.5rem) !important;
+    border-top: 0;
+    border-left: 1px solid var(--oc-border);
+  }
+}
+
+.oc-degerlendirme .woocommerce-Reviews-title,
+.oc-degerlendirme #reply-title {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--oc-navy-800);
+  letter-spacing: -0.01em;
+  text-transform: none;
+  margin: 0 0 1rem;
+}
+
+.oc-degerlendirme .woocommerce-noreviews {
+  margin: 0 0 1.75rem;
+  padding: 1rem 1.15rem;
+  background: var(--oc-gray-50);
+  border: 1px dashed var(--oc-border);
+  border-radius: var(--oc-radius);
+  color: var(--oc-text-muted);
+  font-size: var(--oc-fs-sm);
+}
+
+.oc-degerlendirme #review_form_wrapper {
+  margin-top: 1.75rem !important;
+  padding-top: 1.75rem !important;
+  border-top: 1px solid var(--oc-border);
+}
+
+.oc-degerlendirme .comment-notes {
+  font-size: var(--oc-fs-sm);
+  color: var(--oc-text-muted);
+  margin: 0 0 1.5rem;
+}
+
+.oc-degerlendirme .comment-form { display: grid; gap: 1.15rem; }
+
+.oc-degerlendirme .comment-form p { margin: 0; }
+
+.oc-degerlendirme .comment-form label {
+  display: block;
+  margin-bottom: .45rem;
+  font-size: var(--oc-fs-sm);
+  font-weight: 700;
+  color: var(--oc-navy-800);
+}
+
+.oc-degerlendirme .comment-form .required { color: #DC2626; }
+
+.oc-degerlendirme .comment-form input[type="text"],
+.oc-degerlendirme .comment-form input[type="email"],
+.oc-degerlendirme .comment-form input[type="url"],
+.oc-degerlendirme .comment-form textarea {
+  width: 100%;
+  padding: .85rem 1rem;
+  font-family: var(--oc-font);
+  font-size: var(--oc-fs-base);
+  color: var(--oc-text);
+  background: var(--oc-white);
+  border: 1px solid var(--oc-gray-300);
+  border-radius: var(--oc-radius);
+  transition: border-color var(--oc-transition), box-shadow var(--oc-transition);
+}
+
+.oc-degerlendirme .comment-form input:focus,
+.oc-degerlendirme .comment-form textarea:focus {
+  outline: none;
+  border-color: var(--oc-navy-600);
+  box-shadow: var(--oc-ring);
+}
+
+.oc-degerlendirme .comment-form textarea { min-height: 150px; resize: vertical; }
+
+/* Ad ve e-posta yan yana */
+@media (min-width: 640px) {
+  .oc-degerlendirme .comment-form-author,
+  .oc-degerlendirme .comment-form-email { display: inline-block; width: calc(50% - .6rem); }
+  .oc-degerlendirme .comment-form-author { margin-right: 1.1rem !important; }
+}
+
+/* Yıldız puanlama */
+.oc-degerlendirme .comment-form-rating { margin-bottom: .25rem; }
+
+/* Puanlama yıldızları.
+   Tema (XStore), her bağlantıya sırasıyla 1, 2, 3, 4, 5 yıldız basıyor;
+   yan yana dizildiklerinde ekranda 15 yıldız görünüyordu. Burada
+   WooCommerce'in asıl davranışı geri getiriliyor: eşit genişlikte beş
+   yıldız, üzerine gelince soldan sağa doluyor.
+   Tema kuralları çok özgül olduğu için !important gerekiyor. */
+
+.oc-degerlendirme p.stars {
+  display: block;
+  margin: 0;
+  line-height: 1;
+}
+
+.oc-degerlendirme p.stars > span {
+  display: inline-flex;
+  gap: .3rem;
+}
+
+.oc-degerlendirme p.stars a {
+  position: relative;
+  display: inline-block;
+  width: 2rem !important;
+  height: 2rem;
+  margin: 0 !important;
+  font-size: 0 !important;
+  text-indent: 0;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.oc-degerlendirme p.stars a::before {
+  content: "★" !important;
+  position: absolute;
+  inset: 0;
+  font-family: var(--oc-font) !important;
+  font-size: 1.75rem !important;
+  line-height: 2rem !important;
+  text-align: center;
+  text-indent: 0;
+  color: var(--oc-gray-300);
+  transition: color var(--oc-transition), transform var(--oc-transition);
+}
+
+/* Üzerine gelindiğinde: hepsi dolar, imlecin sağındakiler boşalır. */
+.oc-degerlendirme p.stars:hover a::before { color: var(--oc-amber-500); }
+.oc-degerlendirme p.stars:hover a:hover ~ a::before { color: var(--oc-gray-300); }
+.oc-degerlendirme p.stars a:hover::before { transform: scale(1.12); }
+
+/* Seçildikten sonra: seçilene kadar dolu, sonrası boş. */
+.oc-degerlendirme p.stars.selected a::before { color: var(--oc-amber-500); }
+.oc-degerlendirme p.stars.selected a.active ~ a::before { color: var(--oc-gray-300); }
+
+.oc-degerlendirme p.stars a:focus-visible {
+  outline: 3px solid var(--oc-amber-500);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.oc-degerlendirme .comment-form-cookies-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+}
+.oc-degerlendirme .comment-form-cookies-consent label {
+  margin: 0;
+  font-weight: 500;
+  color: var(--oc-text-muted);
+  font-size: var(--oc-fs-sm);
+  line-height: 1.5;
+}
+.oc-degerlendirme .comment-form-cookies-consent input { margin-top: .2rem; flex-shrink: 0; }
+
+.oc-degerlendirme .form-submit { margin: .35rem 0 0 !important; }
+
+.oc-degerlendirme .form-submit input[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: .75rem 2rem;
+  font-family: var(--oc-font);
+  font-size: var(--oc-fs-sm);
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--oc-navy-900);
+  background: var(--oc-amber-500);
+  border: 2px solid var(--oc-amber-500);
+  border-radius: var(--oc-radius);
+  cursor: pointer;
+  transition: background var(--oc-transition), transform var(--oc-transition),
+              box-shadow var(--oc-transition);
+}
+
+.oc-degerlendirme .form-submit input[type="submit"]:hover {
+  background: var(--oc-amber-600);
+  border-color: var(--oc-amber-600);
+  transform: translateY(-1px);
+  box-shadow: var(--oc-shadow);
+}
+
+.oc-degerlendirme .form-submit input[type="submit"]:focus-visible {
+  outline: 3px solid var(--oc-navy-800);
+  outline-offset: 2px;
+}
+
+/* Mevcut yorum listesi */
+.oc-degerlendirme .commentlist { list-style: none; margin: 0 0 1.5rem; padding: 0; display: grid; gap: 1rem; }
+.oc-degerlendirme .commentlist .comment_container {
+  display: flex;
+  gap: 1rem;
+  padding: 1.15rem;
+  background: var(--oc-gray-50);
+  border: 1px solid var(--oc-border);
+  border-radius: var(--oc-radius);
+}
+.oc-degerlendirme .commentlist img.avatar { width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; }
+
+/* ============================================================
+   RESİMLİ TANITIM BANDI (.oc-vitrin)
+   "Neden Orclean" ile "Kullanım Alanları" arasında yer alır.
+   Görseller medya kitaplığındaki gerçek makine fotoğraflarıdır.
+   ============================================================ */
+
+.oc-vitrin {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(3.5rem, 6vw, 6rem);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255,177,40,.16), transparent 42%),
+    linear-gradient(125deg, var(--oc-navy-900) 0%, var(--oc-navy-800) 62%, #123d55 100%);
+  color: rgba(255,255,255,.82);
+}
+
+.oc-vitrin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .16;
+  background: repeating-linear-gradient(115deg, transparent 0 74px, rgba(255,255,255,.1) 75px 76px);
+  pointer-events: none;
+}
+
+.oc-vitrin__in {
+  display: grid;
+  gap: clamp(2.25rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .oc-vitrin__in { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+
+/* ---- Görsel tarafı ---- */
+
+.oc-vitrin__gorsel {
+  position: relative;
+  /* Küçük görsel ve rozet taşabildiği için altta/sağda pay bırakılır. */
+  padding: 0 0 3.25rem;
+}
+
+.oc-vitrin__ana,
+.oc-vitrin__yan {
+  margin: 0;
+  overflow: hidden;
+}
+
+.oc-vitrin__ana { background: var(--oc-navy-800); }
+
+.oc-vitrin__ana {
+  border-radius: 24px;
+  box-shadow: 0 30px 70px rgba(4,20,31,.5);
+}
+
+.oc-vitrin__ana img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  /* Kare çekimi 4:3 kutuya alırken makine ortada kalsın. */
+  object-position: center 56%;
+}
+
+.oc-vitrin__yan {
+  position: absolute;
+  right: -1.25rem;
+  bottom: .25rem;
+  width: 38%;
+  max-width: 200px;
+  border-radius: 18px;
+  border: 5px solid var(--oc-navy-900);
+  box-shadow: 0 18px 40px rgba(4,20,31,.55);
+}
+
+/* Küçük kart stüdyo çekimi taşıyor: beyaz zemin ve `contain` ile
+   makinenin tamamı görünür, kırpılmaz. */
+.oc-vitrin__yan { background: var(--oc-white); }
+
+.oc-vitrin__yan img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  padding: .35rem;
+}
+
+.oc-vitrin__rozet {
+  position: absolute;
+  left: -.25rem;
+  bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  max-width: 15rem;
+  padding: .85rem 1.15rem;
+  background: var(--oc-amber-500);
+  color: var(--oc-navy-900);
+  border-radius: 16px;
+  box-shadow: 0 16px 34px rgba(4,20,31,.42);
+}
+
+.oc-vitrin__rozet strong {
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+
+.oc-vitrin__rozet span {
+  font-size: var(--oc-fs-sm);
+  font-weight: 600;
+  line-height: 1.3;
+  max-width: 8.5rem;
+}
+
+/* ---- Metin tarafı ---- */
+
+.oc-eyebrow--acik { color: var(--oc-amber-500); }
+
+.oc-vitrin__metin h2 { margin: 0 0 1rem; }
+
+.oc-vitrin__giris {
+  margin: 0;
+  max-width: 54ch;
+  font-size: var(--oc-fs-lg);
+  line-height: 1.75;
+  color: rgba(255,255,255,.8);
+}
+
+.oc-vitrin__liste {
+  list-style: none;
+  margin: 1.6rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: .8rem;
+}
+
+.oc-vitrin__liste li {
+  position: relative;
+  padding-left: 2rem;
+  color: rgba(255,255,255,.9);
+  line-height: 1.6;
+}
+
+.oc-vitrin__liste li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .3em;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: rgba(255,177,40,.18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5' stroke='%23FFB128' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / .8rem no-repeat;
+}
+
+.oc-vitrin__aksiyon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .85rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 899px) {
+  .oc-vitrin__gorsel { padding-bottom: 2.75rem; }
+  .oc-vitrin__yan { max-width: 170px; }
+}
+
+@media (max-width: 479px) {
+  /* Dar ekranda üst üste binen parçalar kaldırılır, düzen sadeleşir. */
+  .oc-vitrin__gorsel { padding-bottom: 0; }
+  .oc-vitrin__yan { display: none; }
+  .oc-vitrin__rozet {
+    position: static;
+    margin-top: 1rem;
+    max-width: none;
+    width: fit-content;
+  }
+  .oc-vitrin__aksiyon .oc-btn { width: 100%; justify-content: center; }
+}
+
+/* ============================================================
+   MOBİL DÜZELTMELERİ
+   Chrome ile 390px ve 360px genişlikte ölçülerek bulunan sorunlar.
+   ============================================================ */
+
+/* Ürün sayfasında galeri sütunu: tema galerisi (swiper) kendi
+   min-content genişliğiyle track'i şişirebiliyor. Track zaten
+   minmax(0, 1fr) oldu; sütunların da küçülebilir olması gerekiyor. */
+.oc-product__gallery,
+.oc-product__summary,
+.oc-alt-bolum__ana,
+.oc-vitrin__metin,
+.oc-vitrin__gorsel {
+  min-width: 0;
+}
+
+.oc-product__gallery .woocommerce-product-gallery,
+.oc-product__gallery .swiper,
+.oc-product__gallery .swiper-wrapper {
+  max-width: 100%;
+}
+
+/* ---- Dokunma hedefleri ----
+   Görünen nokta küçük kalır, tıklama alanı parmak için büyütülür. */
+
+.oc-hero-slider__nokta,
+.oc-product-slider__dots button {
+  position: relative;
+}
+
+.oc-hero-slider__nokta::after,
+.oc-product-slider__dots button::after {
+  content: "";
+  position: absolute;
+  /* En az 24x24px'lik dokunma alanı */
+  left: 50%;
+  top: 50%;
+  width: calc(100% + 6px);
+  height: 26px;
+  transform: translate(-50%, -50%);
+}
+
+/* Ürün sayfası: dar ekranda teknik özellik tablosu taşmasın. */
+@media (max-width: 599px) {
+  .oc-specs__table th,
+  .oc-specs__table td {
+    font-size: var(--oc-fs-sm);
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Altbilgi bağlantıları mobilde parmakla rahat seçilsin. */
+@media (max-width: 767px) {
+  .oc-footer__list a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+  }
+  .oc-footer__list li { margin-bottom: .15rem; }
+}
+
+/* Dar ekranda kategori kartları: tek sütun çok uzun bir liste oluşturuyordu. */
+@media (max-width: 639px) {
+  .oc-kat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .75rem;
+  }
+  .oc-kat { padding: 1.25rem .75rem 1.35rem; gap: .7rem; }
+  .oc-kat__media { width: 96px; height: 96px; }
+  .oc-kat__ad {
+    font-size: var(--oc-fs-sm);
+    min-height: calc(var(--oc-fs-sm) * var(--oc-lh-snug) * 3);
+  }
+  .oc-kat__sayi { font-size: var(--oc-fs-xs); }
+}
+
+/* Bant içindeki yol bağlantıları mobilde daha rahat seçilsin. */
+@media (max-width: 767px) {
+  .oc-bant__iz a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+  }
+}
+
+/* Tema galerisinin yakınlaştırma katmanı kutusundan taşmasın. */
+.oc-product__gallery .woocommerce-product-gallery__image { overflow: hidden; }
+
+/* Bant basılan sayfalarda temanın kendi başlık bloğu gizlenir
+   (aynı başlığın iki kez çıkmasını ve çift <h1>'i önler). */
+body.orclean-bantli .page-heading { display: none !important; }
