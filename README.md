@@ -6,7 +6,7 @@ eksik gördüğünüz noktaları bize iletmenizdir.
 
 ## Demoyu açın
 
-👉 **https://KULLANICI-ADI.github.io/orclean-demo/**
+👉 **https://ilhandal0668.github.io/orclean-demo/**
 
 > Depo yayınlandıktan sonra bu adres çalışır duruma gelir.
 > Bilgisayarınıza hiçbir şey kurmanız gerekmez; bağlantıya tıklamanız yeterli.
