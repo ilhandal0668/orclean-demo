@@ -782,11 +782,12 @@ var xstore_compare_params = {"ajaxurl":"../../wp-admin/admin-ajax.php","confirmQ
 .oc-demo-serit button{position:absolute;right:.6rem;top:50%;transform:translateY(-50%);
  width:28px;height:28px;border:0;border-radius:6px;background:rgba(255,255,255,.14);
  color:#fff;font-size:16px;cursor:pointer}
-@media(max-width:600px){.oc-demo-serit{font-size:12px;padding-right:2.6rem}}
+@media(max-width:600px){.oc-demo-serit{font-size:12px;padding:.5rem 2.6rem .5rem .85rem;
+ line-height:1.35}.oc-demo-uzun{display:none}}
 </style>
 <div class="oc-demo-serit" id="oc-demo-serit" hidden>
- <span><strong>Tasarım demosu.</strong> Ürün araması ve iletişim formu bu kopyada çalışmaz —
- canlı sitede çalışacaktır. Gördüğünüz eksikleri lütfen bize iletin.</span>
+ <span><strong>Tasarım demosu.</strong> <span class="oc-demo-uzun">Ürün araması ve iletişim formu bu
+ kopyada çalışmaz — canlı sitede çalışacaktır. </span>Gördüğünüz eksikleri lütfen bize iletin.</span>
  <button type="button" aria-label="Kapat" onclick="this.parentNode.hidden=true;try{sessionStorage.setItem('oc-demo-serit','kapali')}catch(e){}">&times;</button>
 </div>
 <script>
