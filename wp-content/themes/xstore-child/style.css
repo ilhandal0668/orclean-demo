@@ -3094,3 +3094,61 @@ body.orclean .oc-service-band h2 { max-width: 18ch; margin: 0 0 1rem; color: var
 /* Bant basılan sayfalarda temanın kendi başlık bloğu gizlenir
    (aynı başlığın iki kez çıkmasını ve çift <h1>'i önler). */
 body.orclean-bantli .page-heading { display: none !important; }
+
+/* ============================================================
+   MOBİL ÜSTBİLGİ DÜZENİ
+   360px'te ölçüldü: üstbilgi ekranın %31'ini kaplıyordu (238px).
+   Üç ayrı sorun vardı:
+
+   1) Mesai sloganı iki satıra taşıp 54px yer kaplıyordu. 991px altında
+      gizleyen bir kural zaten vardı, ama saat animasyonu bölümündeki
+      `.oc-topbar__slogan { display: inline-flex }` dosyada DAHA SONRA
+      geldiği için eşit özgüllükle onu eziyordu.
+
+   2) Telefon numarası 767px altında gizlendiği için geriye anlamsız
+      bir simge kalıyor, sosyal simgelerle arasında 140px boş alan
+      açılıyordu. Mobilde numara en işe yarar bilgi: simge yerine
+      numarayı gösteriyoruz.
+
+   3) Logo satırı gereğinden yüksekti (logo ekran genişliğinin %51'i).
+   ============================================================ */
+
+@media (max-width: 991px) {
+  /* 1 — slogan mobilde gizli. */
+  .oc-topbar__slogan { display: none; }
+
+  /* 2 — numara görünür; dokunma hedefi de parmak için yeterli olur. */
+  .oc-topbar__tel-no { display: inline; }
+  .oc-topbar__tel { padding: .3rem .7rem .3rem .35rem; }
+}
+
+@media (max-width: 575px) {
+  /* Tek satır: solda telefon, sağda sosyal simgeler. */
+  .oc-topbar__in { justify-content: space-between; gap: .5rem; }
+  .oc-topbar__links { width: 100%; justify-content: space-between; gap: .5rem; }
+  .oc-topbar__tel { padding-left: .25rem; }
+  .oc-topbar__tel-no { font-size: .82rem; }
+}
+
+/* Çok dar ekranda (≤380px) telefon ve sosyal simgeler yan yana sığsın. */
+@media (max-width: 380px) {
+  .oc-sosyal { gap: .3rem; padding-left: 0; }
+  .oc-sosyal__baglanti { width: 30px; height: 30px; }
+  .oc-topbar__tel { gap: .4rem; }
+  .oc-tel-ikon { width: 22px; height: 22px; }
+}
+
+/* 3 — logo ve gezinme satırı mobilde daha derli toplu. */
+@media (max-width: 600px) {
+  .oc-logo__gorsel { height: 40px; }
+  .oc-nav__in { min-height: 62px; }
+}
+
+/* Gezinme satırı sarınca hem satır arası boşluk (row-gap) hem de arama
+   kutusunun üst payı devreye giriyor, ikisi üst üste binince logo ile
+   arama kutusu arasında 28px boşluk kalıyordu. Tek bir pay bırakılıyor
+   ve arama kutusunun altına da nefes payı veriliyor. */
+@media (max-width: 991px) {
+  .oc-nav__in { row-gap: 0; padding-bottom: .55rem; }
+  .oc-nav-arama { margin: .55rem 0 0; }
+}
